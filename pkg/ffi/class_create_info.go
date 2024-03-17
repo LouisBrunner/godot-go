@@ -29,6 +29,7 @@ func NewGDExtensionClassCreationInfo2(
 	classUserdata unsafe.Pointer,
 ) GDExtensionClassCreationInfo2 {
 	return (GDExtensionClassCreationInfo2)(C.GDExtensionClassCreationInfo2{
+		is_exposed:                  C.GDExtensionBool(1),
 		create_instance_func:        (C.GDExtensionClassCreateInstance)(createInstanceFunc),
 		free_instance_func:          (C.GDExtensionClassFreeInstance)(freeInstanceFunc),
 		get_virtual_call_data_func:  (C.GDExtensionClassGetVirtualCallData)(getVirtualCallDataFunc),

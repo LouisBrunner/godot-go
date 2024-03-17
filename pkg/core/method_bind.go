@@ -125,7 +125,7 @@ func NewMethodMetadata(
 		t := mt.In(i + 1)
 		goArgumentTypes[i] = t
 		variantTypes[i] = ReflectTypeToGDExtensionVariantType(t)
-		argumentsInfo[i] = NewSimpleGDExtensionPropertyInfo(className, variantTypes[i], t.Name())
+		argumentsInfo[i] = NewSimpleGDExtensionPropertyInfo(t.Name(), variantTypes[i], t.Name())
 		argumentsMetadata[i] = GDEXTENSION_METHOD_ARGUMENT_METADATA_NONE
 	}
 	return &MethodMetadata{

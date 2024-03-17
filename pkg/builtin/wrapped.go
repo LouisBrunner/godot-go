@@ -52,7 +52,7 @@ func ObjectCastTo(obj Object, className string) Object {
 	defer gdStrCn.Destroy()
 	log.Info("ObjectCastTo called",
 		zap.String("class", gdStrCn.ToUtf8()),
-		zap.String("className", obj.GetClassName()),
+		zap.String("className", GetClassName(obj)),
 		zap.String("otherClassName", className),
 	)
 	owner := obj.GetGodotObjectOwner()
@@ -84,7 +84,7 @@ func ObjectCastTo(obj Object, className string) Object {
 		FFI.Token,
 		&cbs)
 	wci := (*WrappedClassInstance)(inst)
-	wrapperClassName := wci.Instance.GetClassName()
+	wrapperClassName := GetClassName(wci.Instance)
 	gdStrClassName := wci.Instance.GetClass()
 	defer gdStrClassName.Destroy()
 	log.Info("ObjectCastTo casted",
